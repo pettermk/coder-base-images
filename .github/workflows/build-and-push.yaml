@@ -41,10 +41,11 @@ jobs:
             type=ref,event=branch
             type=semver,pattern={{version}}
       - name: Build and push Docker image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v5
         with:
           file: base/fedora.containerfile
           context: base/
+          target: dotnet-dev
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

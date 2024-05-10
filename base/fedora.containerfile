@@ -37,7 +37,7 @@ USER coder
 FROM fedora-base as dotnet-dev
 
 USER root
-RUN dnf install dotnet-sdk-8.0
+RUN dnf install -y dotnet-sdk-8.0
 
 USER coder
 
