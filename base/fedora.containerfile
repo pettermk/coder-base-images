@@ -1,4 +1,4 @@
-FROM fedora:40
+FROM fedora:40 as fedora-base
 
 SHELL ["/bin/bash", "-c"]
 
@@ -33,3 +33,11 @@ RUN useradd coder \
     echo "coder ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers.d/nopasswd
 
 USER coder
+
+FROM fedora-base as dotnet-dev
+
+USER root
+RUN dnf install dotnet-sdk-8.0
+
+USER coder
+
