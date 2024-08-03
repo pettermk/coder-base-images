@@ -18,7 +18,8 @@ RUN dnf install -y \
     unzip \
     vim \
     wget \
-    rsync && \
+    rsync \
+    neovim && \
     dnf group install -y "Development Tools"
 
 # Make typing unicode characters in the terminal work.
@@ -33,6 +34,8 @@ RUN useradd coder \
     echo "coder ALL=(ALL) NOPASSWD:ALL" >>/etc/sudoers.d/nopasswd
 
 USER coder
+
+RUN git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
 
 FROM fedora-base as dotnet-dev
 
