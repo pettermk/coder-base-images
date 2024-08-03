@@ -35,7 +35,7 @@ RUN useradd coder \
 
 USER coder
 
-RUN git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+RUN git clone --depth 1 https://github.com/AstroNvim/template /home/coder/.config/nvim
 
 FROM fedora-base as dotnet-dev
 
