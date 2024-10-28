@@ -44,3 +44,7 @@ RUN dnf install -y dotnet-sdk-8.0
 
 USER coder
 
+FROM fedora-base as datascience
+
+RUN pip install jupyterlab scipy pandas scikit-learn duckdb
+
