@@ -47,7 +47,7 @@ jobs:
           context: base/
           target: dotnet-dev
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/pettermk/coder-base-images:dotnet-latest
           labels: ${{ steps.meta.outputs.labels }}
       - name: Build and push datascience image
         uses: docker/build-push-action@v5
@@ -56,5 +56,5 @@ jobs:
           context: base/
           target: datascience
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ghcr.io/pettermk/coder-base-images:datascience-latest
           labels: ${{ steps.meta.outputs.labels }}
