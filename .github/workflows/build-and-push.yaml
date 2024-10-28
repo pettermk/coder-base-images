@@ -40,7 +40,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=semver,pattern={{version}}
-      - name: Build and push Docker image
+      - name: Build and push dotnet-dev image
         uses: docker/build-push-action@v5
         with:
           file: base/fedora.containerfile
@@ -49,4 +49,12 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
+      - name: Build and push datascience image
+        uses: docker/build-push-action@v5
+        with:
+          file: base/fedora.containerfile
+          context: base/
+          target: datascience
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
